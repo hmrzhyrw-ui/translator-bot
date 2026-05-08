@@ -1,12 +1,13 @@
 import telebot
 from deep_translator import GoogleTranslator
 
-API_TOKEN = '7611084205:AAF39-vEofFj0A9Z6_jUeGfRAt37B9A-Mms'
+# الرمز الجديد الذي أرسلته
+API_TOKEN = '8114421183:AAHeuO2K3xX9P78m5D982N0S98W8S8W8S8W'
 bot = telebot.TeleBot(API_TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "أهلاً بك! أنا بوت الترجمة المطور. أرسل لي أي نص وسأترجمه فوراً.")
+    bot.reply_to(message, "أهلاً بك في بوت الترجمة! 💬\nأرسل لي أي نص وسأقوم بترجمته فوراً للعربية والإنجليزية.")
 
 @bot.message_handler(func=lambda message: True)
 def translate_message(message):
@@ -19,7 +20,7 @@ def translate_message(message):
         response = f"🇸🇦 **العربية:**\n{to_ar}\n\n🇺🇸 **English:**\n{to_en}"
         bot.reply_to(message, response, parse_mode='Markdown')
     except Exception as e:
-        bot.reply_to(message, "عذراً، حدث خطأ أثناء الترجمة.")
+        bot.reply_to(message, "عذراً، حدث خطأ أثناء الترجمة. حاول مرة أخرى.")
 
-print("البوت يعمل الآن بنجاح...")
+print("البوت بدأ العمل بالرمز الجديد...")
 bot.infinity_polling()
