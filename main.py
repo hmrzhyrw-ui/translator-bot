@@ -6,7 +6,7 @@ bot = telebot.TeleBot(API_TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "أهلاً بك! أنا بوت الترجمة. أرسل لي أي نص وسأعرف لغته وأترجمه للعربية والإنجليزية فوراً.")
+    bot.reply_to(message, "أهلاً بك! أنا بوت الترجمة المطور. أرسل لي أي نص وسأترجمه فوراً.")
 
 @bot.message_handler(func=lambda message: True)
 def translate_message(message):
@@ -21,5 +21,5 @@ def translate_message(message):
     except Exception as e:
         bot.reply_to(message, "عذراً، حدث خطأ أثناء الترجمة.")
 
-print("البوت يعمل الآن...")
+print("البوت يعمل الآن بنجاح...")
 bot.infinity_polling()
